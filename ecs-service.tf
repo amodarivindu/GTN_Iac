@@ -14,6 +14,9 @@ resource "aws_ecs_task_definition" "app" {
       cpu       = 512
       memory    = 1024
       essential = true
+      repositoryCredentials = {
+        credentialsParameter = "arn:aws:secretsmanager:us-east-1:400493233228:secret:dockerhub-JarXjL"
+      }
       portMappings = [
         {
           containerPort = 3000
