@@ -5,6 +5,7 @@ resource "aws_ecs_task_definition" "app" {
   cpu                      = "512"  # vertical scaling
   memory                   = "1024"
   execution_role_arn       = var.execution_role_arn
+  task_role_arn            = var.execution_role_arn  # Using same role for simplicity
 
   container_definitions = jsonencode([
     {
